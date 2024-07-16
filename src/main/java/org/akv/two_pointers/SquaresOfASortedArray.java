@@ -1,6 +1,5 @@
 package org.akv.two_pointers;
 
-import java.util.Arrays;
 
 /** PROBLEM : 977 , TIME TAKEN : NA
  Input: nums = [-4,-1,0,3,10]
