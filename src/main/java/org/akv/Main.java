@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Hello World!");
         int [] numsArr = {-1,1,2,3,1};
 
-        int target=-2;
+        int target=2;
         CountPairsWhoseSumIsThanTarget objCountPairs = new CountPairsWhoseSumIsThanTarget();
         System.out.println("No of Pairs : "+objCountPairs.countPairs(numsArr,target));
         System.out.println("No of Pairs : "+objCountPairs.countPairsWithLoop(numsArr,target));
@@ -20,8 +20,8 @@ public class Main {
         String [] words = {"abc","car","ada","racecar","cool"};
         String [] words1 = {"notapalindrome","dwcblqnxtrwtqmtqenidhxnifdbmdvobwmcvwjxgbyjzgvrqzlskjbfirauguhyyjhlotuckssrkqzppzbqd","racecar"};
 
-//        FindFirstPallindromicStringInArray obj = new FindFirstPallindromicStringInArray();
-//        System.out.println("First pallindrome : "+obj.firstPalindrome(words1));
+        FindFirstPallindromicStringInArray objP = new FindFirstPallindromicStringInArray();
+        System.out.println("First pallindrome : "+objP.firstPalindrome(words1));
 
         SquaresOfASortedArray obj = new SquaresOfASortedArray();
         int [] nums = {-4,-3,1,5,10};
@@ -29,7 +29,7 @@ public class Main {
         int [] res = obj.sortedSquares(nums);
         for (int x :res
              ) {
-            System.out.println(x);
+            System.out.print(x+" " );
         }
 
     }
