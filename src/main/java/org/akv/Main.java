@@ -37,6 +37,6 @@ public class Main {
         System.out.println("perms arr : ");
         for (int x :perms.findPerms("DIDD")
         ) {
-            System.out.print(x+" " );
+            System.out.print(x+" " );//ekd
         }    }
 }
