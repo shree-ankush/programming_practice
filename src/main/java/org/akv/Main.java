@@ -2,6 +2,7 @@ package org.akv;
 
 import org.akv.two_pointers.CountPairsWhoseSumIsThanTarget;
 import org.akv.two_pointers.FindFirstPallindromicStringInArray;
+import org.akv.two_pointers.PermutationsOfTheDiString;
 import org.akv.two_pointers.SquaresOfASortedArray;
 
 import java.util.Arrays;
@@ -32,5 +33,10 @@ public class Main {
             System.out.print(x+" " );
         }
 
-    }
+        PermutationsOfTheDiString perms = new PermutationsOfTheDiString();
+        System.out.println("perms arr : ");
+        for (int x :perms.findPerms("DIDD")
+        ) {
+            System.out.print(x+" " );
+        }    }
 }
