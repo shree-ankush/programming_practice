@@ -2,9 +2,10 @@ package org.akv.practice.easy;
 
 import java.util.Arrays;
 
-public class ProblemsRelatedBinarySearch {
+public class ProblemsRelatedToSearch {
 
-    public int binarySearch(int [] inputArr,int target){
+
+    public int findIndexOfTarget(int [] inputArr,int target){
 
         if(inputArr.length==0){
             return -1;
@@ -33,7 +34,7 @@ public class ProblemsRelatedBinarySearch {
         return -1;
     }
 
-    public boolean binarySearch(int target,int [] inputArr){
+    public boolean isTargetPresent(int target,int [] inputArr){
 
         if(inputArr.length==0){
             return false;
@@ -80,7 +81,7 @@ public class ProblemsRelatedBinarySearch {
 
         for (int i = 0; i < arr.length; i++) {
 
-            if( binarySearch(arr[i]*2,arr )){
+            if( isTargetPresent(arr[i]*2,arr )){
                 System.out.println("found:"+arr[i]+" "+(arr[i]*2));
                 if(x!=i) {
                     x = 0;
