@@ -10,17 +10,13 @@ public class ProblemsRelatedToSearch {
         if(inputArr.length==0){
             return -1;
         }
-        if(inputArr.length==1){
-            if(target==inputArr[0])
-                return 0;
-        }
+
         Arrays.sort(inputArr);
         int left=0,right=inputArr.length-1;
-        int mid ;
 
         while (left<=right){
-            mid = (left+right)/2;
-            if(inputArr[mid]==target){
+            int mid = (left+right)/2;
+            if(target== inputArr[mid]){
                 return  mid;
             }
             else if (target>inputArr[mid]){
