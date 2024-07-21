@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.practice.leetcode.easy.two_pointers;
 
 /** PROBLEM : 977 , TIME TAKEN : NA
  Input: nums = [-4,-1,0,3,10]

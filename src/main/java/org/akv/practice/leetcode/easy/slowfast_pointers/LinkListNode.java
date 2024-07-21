@@ -1,24 +1,24 @@
-package org.akv.slowfast_pointers;
+package org.akv.practice.leetcode.easy.slowfast_pointers;
 
 
 
-public class LinklistNode {
+public class LinkListNode {
 
     int data;
 
-    public LinklistNode next;
+    public LinkListNode next;
 
 
-    public LinklistNode(int val){
+    public LinkListNode(int val){
         data = val;
      }
     public int getData() {
         return data;
     }
 
-    public void display(LinklistNode head){
+    public void display(LinkListNode head){
 
-        LinklistNode curr = head;
+        LinkListNode curr = head;
         while(curr!=null){
             System.out.println("this is curr : "+curr.getData());
             curr=curr.next;
