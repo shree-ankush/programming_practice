@@ -27,6 +27,7 @@ public class ProblemsRelatedToSearch {
             }
 
         }
+
         return -1;
     }
 
@@ -35,16 +36,12 @@ public class ProblemsRelatedToSearch {
         if(inputArr.length==0){
             return false;
         }
-        if(inputArr.length==1){
-            if(target==inputArr[0])
-                return true;
-            return false;
-        }
+
         Arrays.sort(inputArr);
         int left=0,right=inputArr.length-1;
-        int mid ;
-        mid = (left+right)/2;
+
         while (left<=right){
+            int mid = (left+right)/2;
 
             if(inputArr[mid]==target){
                 return  true;
@@ -55,9 +52,9 @@ public class ProblemsRelatedToSearch {
             else{
                 right=mid-1;
             }
-            mid = (left+right)/2;
 
         }
+
         return false;
     }
 
@@ -91,4 +88,36 @@ public class ProblemsRelatedToSearch {
 
         return false;
     }
+
+    public int searchIndexOfTargetElseReturnInsertIndex(int[] arr,int target){
+
+        /**
+         * Return array(which is sorted and have distinct elements) Index of target and if present else return its index
+         * Time Taken : 35Min
+         */
+        int start = 0;
+        boolean isTargetFound = false;
+
+        if(isTargetPresent(target,arr)){
+            return findIndexOfTarget(arr,target);
+        }
+
+
+
+        while(start<= arr.length-1){
+           if(arr[start]<=target){
+              start++;
+           }
+           else {
+               break;
+           }
+
+
+        }
+        System.out.println(start);
+        return --start;
+
+    }
+
+
 }
