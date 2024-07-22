@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.two_pointers.easy;
 
 
 /** PROBLEM : 977 , TIME TAKEN : NA

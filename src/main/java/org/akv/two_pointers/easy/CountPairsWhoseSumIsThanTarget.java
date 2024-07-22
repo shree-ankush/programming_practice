@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.two_pointers.easy;
 
 import java.util.Arrays;
 import java.util.List;

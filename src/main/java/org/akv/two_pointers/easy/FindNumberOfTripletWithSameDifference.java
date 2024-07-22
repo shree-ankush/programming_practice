@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.two_pointers.easy;
 //TIME TAKEN : 11min
 public class FindNumberOfTripletWithSameDifference {
 /*

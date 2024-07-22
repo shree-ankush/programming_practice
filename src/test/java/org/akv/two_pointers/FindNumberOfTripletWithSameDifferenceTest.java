@@ -1,5 +1,6 @@
 package org.akv.two_pointers;
 
+import org.akv.two_pointers.easy.FindNumberOfTripletWithSameDifference;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

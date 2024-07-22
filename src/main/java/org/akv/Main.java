@@ -1,12 +1,9 @@
 package org.akv;
 
-import org.akv.two_pointers.CountPairsWhoseSumIsThanTarget;
-import org.akv.two_pointers.FindFirstPallindromicStringInArray;
-import org.akv.two_pointers.PermutationsOfTheDiString;
-import org.akv.two_pointers.SquaresOfASortedArray;
-
-import java.util.Arrays;
-import java.util.List;
+import org.akv.two_pointers.easy.CountPairsWhoseSumIsThanTarget;
+import org.akv.two_pointers.easy.FindFirstPallindromicStringInArray;
+import org.akv.two_pointers.easy.PermutationsOfTheDiString;
+import org.akv.two_pointers.easy.SquaresOfASortedArray;
 
 public class Main {
     public static void main(String[] args) {
