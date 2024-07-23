@@ -9,9 +9,9 @@ class SquaresOfASortedArrayTest {
 
     @Test
     void sortedSquares() {
-        SquaresOfASortedArray obj= new SquaresOfASortedArray();
-        assertArrayEquals(new int[]{0,9,16,25,100},obj.sortedSquares(new int[]{-4,-3,0,5,10}));
-        assertArrayEquals(new int[]{1,4,9},obj.sortedSquares(new int[]{-2,1,3}));
+        SquaresOfASortedArray obj = new SquaresOfASortedArray();
+        assertArrayEquals(new int[]{0, 9, 16, 25, 100}, obj.sortedSquares(new int[]{-4, -3, 0, 5, 10}));
+        assertArrayEquals(new int[]{1, 4, 9}, obj.sortedSquares(new int[]{-2, 1, 3}));
 
     }
 }

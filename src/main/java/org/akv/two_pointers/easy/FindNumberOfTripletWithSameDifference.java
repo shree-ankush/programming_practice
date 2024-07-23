@@ -1,4 +1,5 @@
 package org.akv.two_pointers.easy;
+
 //TIME TAKEN : 11min
 public class FindNumberOfTripletWithSameDifference {
 /*
@@ -11,15 +12,15 @@ Explanation:
 
     public int arithmeticTriplets(int[] nums, int diff) {
 
-        int count=0;
-        if(nums.length<3){
+        int count = 0;
+        if (nums.length < 3) {
             return 0;
         }
-        for (int i =0;i<nums.length;i++){
-            for (int j =i+1;j<nums.length;j++){
-                if(nums[j]-nums[i]==diff){
-                    for (int k =j+1;k<nums.length;k++){
-                        if(nums[k]-nums[j]==diff){
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] - nums[i] == diff) {
+                    for (int k = j + 1; k < nums.length; k++) {
+                        if (nums[k] - nums[j] == diff) {
                             count++;
                         }
                     }

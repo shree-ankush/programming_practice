@@ -8,32 +8,33 @@ import org.akv.two_pointers.easy.SquaresOfASortedArray;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        int [] numsArr = {-1,1,2,3,1};
+        int[] numsArr = {-1, 1, 2, 3, 1};
 
-        int target=2;
+        int target = 2;
         CountPairsWhoseSumIsThanTarget objCountPairs = new CountPairsWhoseSumIsThanTarget();
-        System.out.println("No of Pairs : "+objCountPairs.countPairs(numsArr,target));
-        System.out.println("No of Pairs : "+objCountPairs.countPairsWithLoop(numsArr,target));
+        System.out.println("No of Pairs : " + objCountPairs.countPairs(numsArr, target));
+        System.out.println("No of Pairs : " + objCountPairs.countPairsWithLoop(numsArr, target));
 
-        String [] words = {"abc","car","ada","racecar","cool"};
-        String [] words1 = {"notapalindrome","dwcblqnxtrwtqmtqenidhxnifdbmdvobwmcvwjxgbyjzgvrqzlskjbfirauguhyyjhlotuckssrkqzppzbqd","racecar"};
+        String[] words = {"abc", "car", "ada", "racecar", "cool"};
+        String[] words1 = {"notapalindrome", "dwcblqnxtrwtqmtqenidhxnifdbmdvobwmcvwjxgbyjzgvrqzlskjbfirauguhyyjhlotuckssrkqzppzbqd", "racecar"};
 
         FindFirstPallindromicStringInArray objP = new FindFirstPallindromicStringInArray();
-        System.out.println("First pallindrome : "+objP.firstPalindrome(words1));
+        System.out.println("First pallindrome : " + objP.firstPalindrome(words1));
 
         SquaresOfASortedArray obj = new SquaresOfASortedArray();
-        int [] nums = {-4,-3,1,5,10};
+        int[] nums = {-4, -3, 1, 5, 10};
         System.out.println("Squares array is : ");
-        int [] res = obj.sortedSquares(nums);
-        for (int x :res
-             ) {
-            System.out.print(x+" " );
+        int[] res = obj.sortedSquares(nums);
+        for (int x : res
+        ) {
+            System.out.print(x + " ");
         }
 
         PermutationsOfTheDiString perms = new PermutationsOfTheDiString();
         System.out.println("perms arr : ");
-        for (int x :perms.findPerms("DIDD")
+        for (int x : perms.findPerms("DIDD")
         ) {
-            System.out.print(x+" " );
-        }    }
+            System.out.print(x + " ");
+        }
+    }
 }

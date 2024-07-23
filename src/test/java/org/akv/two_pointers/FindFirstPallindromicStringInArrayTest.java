@@ -10,15 +10,14 @@ class FindFirstPallindromicStringInArrayTest {
     @Test
     void firstPalindrome() {
         FindFirstPallindromicStringInArray findFirstPallindromicStringInArray = new FindFirstPallindromicStringInArray();
-        //corner case if array is empty
-        assertEquals("",findFirstPallindromicStringInArray.firstPalindrome(new String []{}));
+        assertEquals("", findFirstPallindromicStringInArray.firstPalindrome(new String[]{}));
 
-        assertEquals("s",findFirstPallindromicStringInArray.firstPalindrome(new String []{"s"}));
+        assertEquals("s", findFirstPallindromicStringInArray.firstPalindrome(new String[]{"s"}));
 
-        assertEquals("",findFirstPallindromicStringInArray.firstPalindrome(new String []{"sa","sb"}));
-        assertEquals("ss",findFirstPallindromicStringInArray.firstPalindrome(new String []{"sa","sb","ss"}));
+        assertEquals("", findFirstPallindromicStringInArray.firstPalindrome(new String[]{"sa", "sb"}));
+        assertEquals("ss", findFirstPallindromicStringInArray.firstPalindrome(new String[]{"sa", "sb", "ss"}));
 
 
-        assertEquals("ada",findFirstPallindromicStringInArray.firstPalindrome(new String []{"abc","car","ada","racecar","cool"}));
+        assertEquals("ada", findFirstPallindromicStringInArray.firstPalindrome(new String[]{"abc", "car", "ada", "racecar", "cool"}));
     }
 }

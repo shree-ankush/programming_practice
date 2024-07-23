@@ -10,6 +10,6 @@ class PermutationsOfTheDiStringTest {
     @Test
     void findPerms() {
         PermutationsOfTheDiString perms = new PermutationsOfTheDiString();
-        assertEquals(new int[]{0,4,1,3,2},perms.findPerms("IDID"));
+        assertEquals(new int[]{0, 4, 1, 3, 2}, perms.findPerms("IDID"));
     }
 }

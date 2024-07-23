@@ -1,67 +1,94 @@
 package org.akv.two_pointers.easy;
 
-import java.util.ArrayList;
-
 
 /**
- *method : shortestDistanceToChar, Time : 1Hr
- *  */
+ * method : shortestDistanceToChar, Time : 1Hr
+ */
 
 
 public class TwoPointerProblem {
 
 
     public int[] shortestDistanceToChar(String s, char c) {
-        int [] answer  = new int[s.length()];
-
+        int[] answer = new int[s.length()];
         char[] sArr = s.toCharArray();
+        int currIndex = s.indexOf(c, 0);
 
-        int currIndex = s.indexOf(c,0);
 
-        while(currIndex!=-1 && currIndex<s.length()) {
-            System.out.println(currIndex);
+        while (currIndex != -1) {
             int left = currIndex - 1, right = currIndex + 1;
-            System.out.println(left+" "+currIndex+" "+right);
-            answer[currIndex]=currIndex;
+            answer[currIndex] = 0;
 
+            boolean isLeftFinished = true, isRightDone = true;
 
-           while(left>=0&&right<=answer.length-1){
-               System.out.println(left+" "+right);
-               if (sArr[left] != c) {
-                   if(answer[left]==0)
-                       answer[left]=Math.abs(currIndex - left);
-                   answer[left] = Math.min(Math.abs(currIndex - left), answer[left]);
+            for (int i = 0; i <= (s.length() - currIndex) + 1; i++) {
+                if (left < 0) {
+                    isLeftFinished = false;
+                }
 
-               }
-               if (sArr[right] != c) {
-                   if(answer[right]==0)
-                   {
+                if (isLeftFinished && sArr[left] != c) {
+                    if (answer[left] == 0)
+                        answer[left] = Math.abs(currIndex - left);
+                    answer[left] = Math.min(Math.abs(currIndex - left), answer[left]);
 
-                       answer[right]=Math.abs(currIndex - right);
-                       System.out.println("in right check : "+sArr[right]+" "+answer[right]+" "+right);
+                }
 
-                   }
-                   else
+                if (right > s.length() - 1) {
+                    isRightDone = false;
+                }
+
+                if (isRightDone && sArr[right] != c) {
+                    if (answer[right] == 0) {
+
+                        answer[right] = Math.abs(currIndex - right);
+
+                    } else
                         answer[right] = Math.min(Math.abs(currIndex - right), answer[right]);
 
-               }
-               answer[currIndex]=0;
-               right++;
-               left--;
+                }
 
-           }
-            for (int i =0;i<sArr.length;i++)
-            {
-                System.out.print(s.charAt(i)+" ");}
-            System.out.println();
-            for (int i =0;i<sArr.length;i++)
-            {
-                System.out.print(answer[i]+" ");
+                answer[currIndex] = 0;
+                right++;
+                left--;
+
             }
-            currIndex=s.indexOf(c, currIndex+1);
-        }
 
-        return  answer;
+
+            for (int i = 0; i < sArr.length; i++) {
+                System.out.print(s.charAt(i) + " ");
+            }
+            System.out.println();
+            for (int i = 0; i < sArr.length; i++) {
+                System.out.print(answer[i] + " ");
+            }
+            currIndex = s.indexOf(c, currIndex + 1);
+            System.out.println();
+        }
+        return answer;
+
     }
+
+
+    public long findArrConcatValue(int[] arr) {
+        int left = 0, right = arr.length - 1;
+        long answer = 0;
+
+        while (left <= right) {
+            String s = "";
+            if (left != right) {
+                s += arr[left] + "" + arr[right];
+            } else {
+                s += arr[left];
+            }
+            System.out.print(s + " ");
+            System.out.println();
+            answer += Long.parseLong(s);
+            System.out.print(answer + " ");
+            left++;
+            right--;
+        }
+        return answer;
+    }
+
 
 }
