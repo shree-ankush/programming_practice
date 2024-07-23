@@ -8,15 +8,13 @@ public class GetMidOfList {
      * Space Complexity : n
      */
 
-    public LinkListNode getMiddleNodeInLinkedList(LinkListNode head){
-        if(head==null||head.next==null){
+    public LinkListNode getMiddleNodeInLinkedList(LinkListNode head) {
+        if (head == null || head.next == null) {
             return head;
-        }
-
-        else{
+        } else {
             LinkListNode slow = head;
             LinkListNode fast = head;
-            while(fast.next.next!=null){
+            while (fast.next.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;
             }
