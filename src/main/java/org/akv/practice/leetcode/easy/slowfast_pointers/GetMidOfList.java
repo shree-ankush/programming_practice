@@ -2,13 +2,16 @@ package org.akv.practice.leetcode.easy.slowfast_pointers;
 
 public class GetMidOfList {
 
-    /**
-     * Time Taken : 30min
-     * Time Complexity : O(n/2)
-     * Space Complexity : n
-     */
 
     public LinkListNode getMiddleNodeInLinkedList(LinkListNode head) {
+        /**
+         * Returns the middle node of the linked list
+         * @param head head of Link list
+         * @return LinkListNode
+         * @TimeComplexity O(n / 2)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 30min
+         */
         if (head == null || head.next == null) {
             return head;
         } else {

@@ -44,7 +44,7 @@ public class Main {
         head.display(curr);
         GetMidOfList getMidOfList = new GetMidOfList();
         System.out.println(curr);
-        System.out.println("this is middle of list :"+getMidOfList.getMiddleElement(curr).getData());
+        System.out.println("this is middle of list :"+getMidOfList.getMiddleNodeInLinkedList(curr).getData());
 
     }
 }

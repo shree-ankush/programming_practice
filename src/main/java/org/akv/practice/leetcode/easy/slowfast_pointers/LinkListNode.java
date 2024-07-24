@@ -3,6 +3,10 @@ package org.akv.practice.leetcode.easy.slowfast_pointers;
 
 public class LinkListNode {
 
+    /**
+     * This is a class implementing a Linklist
+     */
+
     int data;
 
     public LinkListNode next;
