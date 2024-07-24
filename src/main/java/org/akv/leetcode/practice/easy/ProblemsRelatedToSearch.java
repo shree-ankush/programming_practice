@@ -1,4 +1,4 @@
-package org.akv.practice.easy;
+package org.akv.leetcode.practice.easy;
 
 import java.util.Arrays;
 
@@ -6,6 +6,15 @@ public class ProblemsRelatedToSearch {
 
 
     public int findIndexOfTarget(int [] inputArr,int target){
+
+        /**
+         * Return the index of the target element using binary search
+         * @param inputArr array of integers
+         * @param target integer
+         * @return int
+         * @TimeComplexity O(n log n)
+         * @SpaceComplexity O(1)
+         */
 
         if(inputArr.length==0){
             return -1;
@@ -32,6 +41,15 @@ public class ProblemsRelatedToSearch {
     }
 
     public boolean isTargetPresent(int target,int [] inputArr){
+
+        /**
+         * Return the index of the target element using binary search
+         * @param target integer
+         * @param inputArr array of integers
+         * @return int
+         * @TimeComplexity O(n log n)
+         * @SpaceComplexity O(1)
+         */
 
         if(inputArr.length==0){
             return false;
@@ -61,11 +79,18 @@ public class ProblemsRelatedToSearch {
 
     public boolean checkIfNumAndDoubleExists(int [] arr){
 
-        /*
-            given an array arr of integers, check if there exist two indices i and j such that
-            Input: arr = [10,2,5,3], o/p = true
-            10 = 5*2
-        * */
+        /**
+         * Given an array arr of integers, check if there exist two indices i and j such that :
+         *
+         * i != j
+         * 0 <= i, j < arr.length
+         * arr[i] == 2 * arr[j]
+         * @param arr Array of Integers
+         * @return boolean
+         * @TimeComplexity O(n log n)
+         * @SpaceComplexity O(1)
+         */
+
         int x=0;
 
         if(arr.length<=1){
@@ -93,7 +118,11 @@ public class ProblemsRelatedToSearch {
 
         /**
          * Return array(which is sorted and have distinct elements) Index of target and if present else return its index
-         * Time Taken : 35Min
+         * @param arr Array of Integers
+         * @param target
+         * @TimeComplexity O(n^2)
+         * @SpaceComplexity O(n)
+         * @TimeTaken : 35Min
          */
         int start = 0;
         boolean isTargetFound = false;

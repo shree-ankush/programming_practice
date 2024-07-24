@@ -1,4 +1,4 @@
-package org.akv.practice.easy;
+package org.akv.leetcode.practice.easy;
 
 import org.junit.jupiter.api.Test;
 
