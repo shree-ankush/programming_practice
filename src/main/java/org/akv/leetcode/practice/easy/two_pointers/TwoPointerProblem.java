@@ -267,19 +267,21 @@ public class TwoPointerProblem {
          * @param arr array of integers
          * @return integer
          * @TimeComplexity O(n logn)
-         * @SpaceComplexity O(n)
+         * @SpaceComplexity O(1)
          * @TimeTaken 6min
          */
 
-        double answer= Double.MAX_VALUE;
+        double answer = Double.MAX_VALUE;
         int start = 0, end = arr.length - 1;
         Arrays.sort(arr);
-        while(start<=end){
-            answer=answer<((float)arr[start]+arr[end])/2?answer:((float)arr[start]+arr[end])/2;
-            System.out.println(answer+" "+arr[start]+" "+arr[end]);
+        while (start <= end) {
+            answer = answer < ((float) arr[start] + arr[end]) / 2 ? answer : ((float) arr[start] + arr[end]) / 2;
+            System.out.println(answer + " " + arr[start] + " " + arr[end]);
             start++;
             end--;
         }
         return answer;
     }
+
+
 }
