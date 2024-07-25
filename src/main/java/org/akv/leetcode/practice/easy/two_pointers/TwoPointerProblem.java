@@ -1,6 +1,8 @@
 package org.akv.leetcode.practice.easy.two_pointers;
 
 
+import java.util.Arrays;
+
 /**
  * method : shortestDistanceToChar, Time : 1Hr
  */
@@ -91,7 +93,7 @@ public class TwoPointerProblem {
     }
 
 
-//2108. Find First Palindromic String in the Array
+    
 
     public String firstPalindrome(String[] words) {
 
@@ -254,5 +256,30 @@ public class TwoPointerProblem {
         return arr;
     }
 
+    public double minAvgOfSmallestLargestNum(int[] arr) {
 
+        /**
+         * You have an array of floating point numbers averages which is initially empty. You are given an array nums of n integers where n is even.
+         * You repeat the following procedure n / 2 times:
+         * Remove the smallest element, minElement, and the largest element maxElement, from nums.
+         * Add (minElement + maxElement) / 2 to averages.
+         * Return the minimum element in averages.
+         * @param arr array of integers
+         * @return integer
+         * @TimeComplexity O(n logn)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 6min
+         */
+
+        double answer= Double.MAX_VALUE;
+        int start = 0, end = arr.length - 1;
+        Arrays.sort(arr);
+        while(start<=end){
+            answer=answer<((float)arr[start]+arr[end])/2?answer:((float)arr[start]+arr[end])/2;
+            System.out.println(answer+" "+arr[start]+" "+arr[end]);
+            start++;
+            end--;
+        }
+        return answer;
+    }
 }

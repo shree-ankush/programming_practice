@@ -75,4 +75,10 @@ class TwoPointerProblemTest {
 
     }
 
+    @Test
+    void minAvgOfSmallestLargestNum() {
+        assertEquals(5.5,problem.minAvgOfSmallestLargestNum(new int[]{7,8,3,4,15,13,4,1}));
+        assertEquals(8.5,problem.minAvgOfSmallestLargestNum(new int[]{1,50,8,3,50,9}));
+
+    }
 }
