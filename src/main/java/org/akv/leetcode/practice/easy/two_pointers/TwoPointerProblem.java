@@ -3,10 +3,6 @@ package org.akv.leetcode.practice.easy.two_pointers;
 
 import java.util.Arrays;
 
-/**
- * method : shortestDistanceToChar, Time : 1Hr
- */
-
 
 public class TwoPointerProblem {
 
@@ -93,8 +89,6 @@ public class TwoPointerProblem {
     }
 
 
-    
-
     public String firstPalindrome(String[] words) {
 
         /**
@@ -106,20 +100,20 @@ public class TwoPointerProblem {
          * @TimeTaken N/A
          */
 
-        for(int i =0 ; i< words.length;i++){
-            if(checkPallindrome(words[i])) return words[i];
+        for (int i = 0; i < words.length; i++) {
+            if (checkPallindrome(words[i])) return words[i];
         }
         return "";
     }
-    public boolean checkPallindrome(String word){
-        int start = 0 ;
-        int end = word.length()-1;
-        while(start<end){
-            if(word.charAt(start) !=word.charAt(end)){
+
+    public boolean checkPallindrome(String word) {
+        int start = 0;
+        int end = word.length() - 1;
+        while (start < end) {
+            if (word.charAt(start) != word.charAt(end)) {
                 return false;
-            }
-            else{
-                start ++;
+            } else {
+                start++;
                 end--;
             }
         }
@@ -162,7 +156,7 @@ public class TwoPointerProblem {
          * @param nums
          * @param diff
          * @return int
-         * @TimeComplexity O(n^3)
+         * @TimeComplexity O(n ^ 3)
          * @SpaceComplexity O(1)
          */
 
@@ -224,7 +218,7 @@ public class TwoPointerProblem {
          *Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
          * @param nums
          * @return Integer Array
-         * @TimeComplexity 0(n^2)
+         * @TimeComplexity 0(n ^ 2)
          * @SpaceComplexity O(n)
          */
 
@@ -236,7 +230,6 @@ public class TwoPointerProblem {
             arr[i] = num * num;
             i++;
         }
-//        Arrays.sort(arr);
 
         return sortArr(arr);
     }
@@ -283,5 +276,103 @@ public class TwoPointerProblem {
         return answer;
     }
 
+    public int largestPositiveIntWithItsNegative(int[] arr) {
+
+        /**
+         * Given an integer array nums that does not contain any zeros, find the largest positive integer k such that -k also exists in the array.
+         * Return the positive integer k. If there is no such integer, return -1.
+         * @param arr array of integers
+         * @return int
+         * @TimeComplexity O(n logn)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 24min46sec
+         */
+        if (arr.length == 1) {
+            return -1;
+        }
+
+
+        Arrays.sort(arr);
+        for (int i = arr.length - 1; i >= 0; i--) {
+
+            if (isNegativePresent(arr, arr[i])) {
+                return arr[i];
+            }
+        }
+
+        return -1;
+    }
+
+    public boolean isNegativePresent(int[] arr, int target) {
+        /**
+         * it checks whether the negative of the input target element is present in an array or not
+         * @param arr
+         * @param target
+         * @return boolean
+         * @TimeComplexity O(nlogn)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 5min
+         */
+        int left = 0, right = arr.length - 1;
+
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (arr[mid] == (target * -1)) {
+                return true;
+            }
+            if ((target * -1) < arr[mid]) {
+                right = mid - 1;
+            }
+            if ((target * -1) > arr[mid]) {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+
+    public int[][] flipImage(int[][] image) {
+
+        /**
+         * Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+         * To flip an image horizontally means that each row of the image is reversed.
+         * For example, flipping [1,1,0] horizontally results in [0,1,1].
+         * To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+         * For example, inverting [0,1,1] results in [1,0,0].
+         * @param image 2d array of integers having only 0 and 1
+         * @return int[][]
+         * @TimeComplexity O(n^2)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 13min59sec
+         */
+        int imageLen = image.length;
+        for (int i = 0; i < imageLen; i++) {
+            int start = 0, end = imageLen - 1;
+            while (start <= end) {
+                int temp = image[i][start];
+                image[i][start] = image[i][end];
+                image[i][end] = temp;
+                start++;
+                end--;
+            }
+
+        }
+        return invertImage(image, imageLen);
+
+
+    }
+
+    public int[][] invertImage(int[][] image, int imageLen) {
+        int count = 0;
+
+        for (int j = 0; j < imageLen; j++) {
+            for (int i = 0; i < imageLen; i++) {
+                image[j][i] = image[j][i] == 1 ? 0 : 1;
+
+            }
+        }
+        return image;
+
+    }
 
 }

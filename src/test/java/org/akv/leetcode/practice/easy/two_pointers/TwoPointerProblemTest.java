@@ -60,7 +60,7 @@ class TwoPointerProblemTest {
     void arithmeticTriplets() {
         assertEquals(0, problem.arithmeticTriplets(new int[]{0, 2}, 2));
         assertEquals(2, problem.arithmeticTriplets(new int[]{0, 1, 4, 6, 7, 10}, 3));
-        assertEquals(2, problem.arithmeticTriplets(new int[]{ 1, 4, 7, 10}, 3));
+        assertEquals(2, problem.arithmeticTriplets(new int[]{1, 4, 7, 10}, 3));
         assertEquals(2, problem.arithmeticTriplets(new int[]{4, 5, 6, 7, 8, 9}, 2));
     }
 
@@ -68,6 +68,7 @@ class TwoPointerProblemTest {
     void findPerms() {
         assertEquals(new int[]{0, 4, 1, 3, 2}, problem.findPerms("IDID"));
     }
+
     @Test
     void sortedSquares() {
         assertArrayEquals(new int[]{0, 9, 16, 25, 100}, problem.sortedSquares(new int[]{-4, -3, 0, 5, 10}));
@@ -77,8 +78,26 @@ class TwoPointerProblemTest {
 
     @Test
     void minAvgOfSmallestLargestNum() {
-        assertEquals(5.5,problem.minAvgOfSmallestLargestNum(new int[]{7,8,3,4,15,13,4,1}));
-        assertEquals(8.5,problem.minAvgOfSmallestLargestNum(new int[]{1,50,8,3,50,9}));
+        assertEquals(5.5, problem.minAvgOfSmallestLargestNum(new int[]{7, 8, 3, 4, 15, 13, 4, 1}));
+        assertEquals(8.5, problem.minAvgOfSmallestLargestNum(new int[]{1, 50, 8, 3, 50, 9}));
 
+    }
+
+
+    @Test
+    void largestPositiveIntWithItsNegative() {
+        assertEquals(3, problem.largestPositiveIntWithItsNegative(new int[]{-1, 2, -3, 3}));
+        assertEquals(-1, problem.largestPositiveIntWithItsNegative(new int[]{-1, 2, -4, 3}));
+        assertEquals(1, problem.largestPositiveIntWithItsNegative(new int[]{-1, 1}));
+        assertEquals(-1, problem.largestPositiveIntWithItsNegative(new int[]{1}));
+        assertEquals(7, problem.largestPositiveIntWithItsNegative(new int[]{-1, 10, 6, 7, -7, 1}));
+
+    }
+
+    @Test
+    void flipImage() {
+
+        assertArrayEquals(new int[][]{{1,0,0}, {0,1,0},{1,1,1}}, problem.flipImage(new int[][]{{1,1,0}, {1,0,1},{0,0,0}}));
+        assertArrayEquals(new int[][]{{1,1,0,0},{0,1,1,0},{0,0,0,1},{1,0,1,0}},problem.flipImage(new int[][]{{1,1,0,0},{1,0,0,1},{0,1,1,1},{1,0,1,0}}));
     }
 }
