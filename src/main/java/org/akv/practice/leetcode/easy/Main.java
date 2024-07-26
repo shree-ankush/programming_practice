@@ -1,11 +1,9 @@
-package org.akv;
+package org.akv.practice.leetcode.easy;
 
-import org.akv.two_pointers.CountPairsWhoseSumIsThanTarget;
-import org.akv.two_pointers.FindFirstPallindromicStringInArray;
-import org.akv.two_pointers.SquaresOfASortedArray;
-
-import java.util.Arrays;
-import java.util.List;
+import org.akv.practice.leetcode.easy.slowfast_pointers.GetMidOfList;
+import org.akv.practice.leetcode.easy.slowfast_pointers.LinkListNode;
+import org.akv.practice.leetcode.easy.two_pointers.CountPairsWhoseSumIsThanTarget;
+import org.akv.practice.leetcode.easy.two_pointers.SquaresOfASortedArray;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,6 +29,22 @@ public class Main {
              ) {
             System.out.println(x);
         }
+        LinkListNode head = new LinkListNode(19);
+        LinkListNode curr = head;
+        head.next  = new LinkListNode(20);
+        head=head.next;
+        head.next  = new LinkListNode(21);
+        head=head.next;
+        head.next  = new LinkListNode(22);
+        head=head.next;
+        head.next  = new LinkListNode(23);
+        head=head.next;
+        head.next  = new LinkListNode(24);
+        head=head.next;
+        head.display(curr);
+        GetMidOfList getMidOfList = new GetMidOfList();
+        System.out.println(curr);
+        System.out.println("this is middle of list :"+getMidOfList.getMiddleNodeInLinkedList(curr).getData());
 
     }
 }
