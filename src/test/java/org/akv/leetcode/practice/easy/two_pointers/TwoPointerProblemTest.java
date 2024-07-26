@@ -100,4 +100,19 @@ class TwoPointerProblemTest {
         assertArrayEquals(new int[][]{{1,0,0}, {0,1,0},{1,1,1}}, problem.flipImage(new int[][]{{1,1,0}, {1,0,1},{0,0,0}}));
         assertArrayEquals(new int[][]{{1,1,0,0},{0,1,1,0},{0,0,0,1},{1,0,1,0}},problem.flipImage(new int[][]{{1,1,0,0},{1,0,0,1},{0,1,1,1},{1,0,1,0}}));
     }
+
+    @Test
+    void reversePrefixOfWord() {
+        assertEquals("dcbaefd", problem.reversePrefixOfWord("abcdefd", 'd'));
+        assertEquals("zxyxxe", problem.reversePrefixOfWord("xyxzxe", 'z'));
+        assertEquals("abcd", problem.reversePrefixOfWord("abcd", 'z'));
+    }
+
+    @Test
+    void isPalindrome() {
+        assertTrue(problem.isPalindrome("abba"));
+        assertFalse(problem.isPalindrome("ra ce a 34car"));
+        assertFalse(problem.isPalindrome("ra c:'\"e a 34car"));
+        assertTrue(problem.isPalindrome("A man, a plan, a canal: Panama"));
+    }
 }

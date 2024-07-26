@@ -341,7 +341,7 @@ public class TwoPointerProblem {
          * For example, inverting [0,1,1] results in [1,0,0].
          * @param image 2d array of integers having only 0 and 1
          * @return int[][]
-         * @TimeComplexity O(n^2)
+         * @TimeComplexity O(n ^ 2)
          * @SpaceComplexity O(n)
          * @TimeTaken 13min59sec
          */
@@ -363,7 +363,15 @@ public class TwoPointerProblem {
     }
 
     public int[][] invertImage(int[][] image, int imageLen) {
-        int count = 0;
+        /**
+         * To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+         * @param image
+         * @param imageLen
+         * @return int[][]
+         * @TimeComplexity O(n^2)
+         * @SpaceComplexity O(1)
+         * @TimeTaken 4min
+         */
 
         for (int j = 0; j < imageLen; j++) {
             for (int i = 0; i < imageLen; i++) {
@@ -374,5 +382,89 @@ public class TwoPointerProblem {
         return image;
 
     }
+
+    public String reversePrefixOfWord(String word, char ch) {
+        /**
+         * Given a 0-indexed string word and a character ch, reverse the segment of word that starts at index 0 and ends at the index of the first occurrence of ch (inclusive). If the character ch does not exist in word, do nothing.
+         * For example, if word = "abcdefd" and ch = "d", then you should reverse the segment that starts at 0 and ends at 3 (inclusive). The resulting string will be "dcbaefd".
+         * Return the resulting string.
+         * @param word
+         * @param ch
+         * @return String
+         * @TimeComplexity O()
+         * @SpaceComplexity O()
+         * @TimeTaken 12min
+         */
+        if (!word.contains(ch + "")) {
+            return word;
+        }
+        char[] wordArr = word.toCharArray();
+        int charIndex = word.indexOf(ch);
+        String answer = "";
+        if (charIndex != -1) {
+            char[] strToReverse = word.substring(0, charIndex + 1).toCharArray();
+            int start = 0, end = strToReverse.length - 1;
+            while (start <= end) {
+                char temp = strToReverse[start];
+                strToReverse[start] = strToReverse[end];
+                strToReverse[end] = temp;
+                start++;
+                end--;
+            }
+
+
+            for (int i = 0; i < wordArr.length; i++) {
+                if (i <= charIndex) {
+                    answer += strToReverse[i];
+                } else {
+                    answer += wordArr[i];
+                }
+
+
+            }
+            return answer;
+
+
+        }
+
+        return word;
+
+
+    }
+
+    public boolean isPalindrome(String s) {
+        /**
+         * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+         * Given a string s, return true if it is a palindrome, or false otherwise.
+         * @param s
+         * @return boolean
+         * @TimeComplexity O(nlogn)
+         * @SpaceComplexity O(n)
+         * @TimeTaken 16min 8sec
+         */
+
+        if (s.trim().isEmpty()){
+            return true;
+        }
+
+        s = s.toLowerCase();
+        StringBuilder str = new StringBuilder();
+        for (String word :
+                s.split("[^0-9a-z]")) {
+            str.append(word);
+        }
+        int start = 0, end = str.length() - 1;
+
+        while (start <= end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
 
 }
