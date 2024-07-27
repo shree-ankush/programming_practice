@@ -345,18 +345,26 @@ public class TwoPointerProblem {
          * @SpaceComplexity O(n)
          * @TimeTaken 13min59sec
          */
-        int imageLen = image.length;
-        for (int i = 0; i < imageLen; i++) {
-            int start = 0, end = imageLen - 1;
-            while (start <= end) {
-                int temp = image[i][start];
-                image[i][start] = image[i][end];
-                image[i][end] = temp;
+        int imageLen = image.length-1;
+        int count=0;
+        int start = 0, end = imageLen ;
+       while(count<=imageLen) {
+
+            if (start < end) {
+                int temp = image[count][start];
+                image[count][start] = image[count][end];
+                image[count][end] = temp;
                 start++;
                 end--;
             }
+            else{
+                start = 0;
+                end = imageLen ;
+                count++;
+            }
 
         }
+
         return invertImage(image, imageLen);
 
 
@@ -373,12 +381,25 @@ public class TwoPointerProblem {
          * @TimeTaken 4min
          */
 
-        for (int j = 0; j < imageLen; j++) {
-            for (int i = 0; i < imageLen; i++) {
-                image[j][i] = image[j][i] == 1 ? 0 : 1;
+        int count = 0;
+        int start = 0, end = imageLen ;
 
+        while (count <= imageLen ) {
+            if (start <= end) {
+                if (start != end) {
+                    image[count][start] = image[count][start] == 1 ? 0 : 1;
+                }
+                image[count][end] = image[count][end] == 1 ? 0 : 1;
+                start++;
+                end--;
+            } else {
+                start = 0;
+                end = imageLen;
+                count++;
             }
+
         }
+
         return image;
 
     }
@@ -466,5 +487,38 @@ public class TwoPointerProblem {
         return true;
     }
 
+    public String reversePrefix(String word, char ch) {
+        if (!word.contains(ch + "")) {
+            return word;
+        }
+        char[] wordArr = word.toCharArray();
+        int charIndex = word.indexOf(ch);
+        StringBuilder answer =new StringBuilder();
+
+        if (charIndex != -1) {
+            char[] strToReverse = word.substring(0,charIndex+1).toCharArray();
+            int start = 0, end = charIndex;
+            while (start <= end) {
+                char temp = strToReverse[start];
+                strToReverse[start] = strToReverse[end];
+                strToReverse[end] = temp;
+                start++;
+                end--;
+            }
+
+            for (int i = 0; i < wordArr.length; i++) {
+
+                answer.append(strToReverse[i]);
+            }
+            answer.append(word.substring(charIndex+1,word.length()));
+            return answer.toString();
+
+
+        }
+
+        return word;
+
+
+    }
 
 }
