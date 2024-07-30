@@ -116,21 +116,21 @@ public class BinarySearchImplementation {
      */
     public int searchIndexOfTargetElseReturnInsertIndex(int[] arr, int target) {
 
-        if (isTargetPresent(target, arr)) {
-            return findIndexOfTarget(arr, target);
-        }
-
-        int start = 0;
-        while (start <= arr.length - 1) {
-            if (arr[start] <= target) {
-                start++;
-            } else {
-                break;
+        int start=0,end=arr.length-1;
+        int mid = (start+end)/2;
+        while(start<=end){
+            if(target == arr[mid]){
+                return mid;
+            } else if (target < arr[mid]) {
+                end=mid-1;
             }
-
-
+            else{
+                start=mid+1;
+            }
+            mid = (start+end)/2;
         }
-        return --start;
+        return target<arr[mid]?mid:mid+1;
+
 
     }
 

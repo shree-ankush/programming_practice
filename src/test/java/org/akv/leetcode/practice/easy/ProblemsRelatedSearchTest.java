@@ -40,8 +40,9 @@ class BinarySearchImplementationTest {
     @Test
     void searchIndexOfTargetElseReturnInsertIndex() {
         assertEquals(2,binarySearch.searchIndexOfTargetElseReturnInsertIndex(new int []{1,3,5,6},5));
-        assertEquals(3,binarySearch.searchIndexOfTargetElseReturnInsertIndex(new int []{1,3,5,6},7));
+        assertEquals(4,binarySearch.searchIndexOfTargetElseReturnInsertIndex(new int []{1,3,5,6},7));
         assertEquals(1,binarySearch.searchIndexOfTargetElseReturnInsertIndex(new int []{1,3,5,6},2));
+        assertEquals(0,binarySearch.searchIndexOfTargetElseReturnInsertIndex(new int []{1,3,5,6},0));
 
     }
 
