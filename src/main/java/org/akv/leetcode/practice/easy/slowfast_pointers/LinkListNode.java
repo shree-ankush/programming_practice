@@ -1,4 +1,4 @@
-package org.akv.slowfast_pointers;
+package org.akv.leetcode.practice.easy.slowfast_pointers;
 
 
 public class LinkListNode {

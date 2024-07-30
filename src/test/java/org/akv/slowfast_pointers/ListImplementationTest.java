@@ -1,5 +1,7 @@
 package org.akv.slowfast_pointers;
 
+import org.akv.leetcode.practice.easy.slowfast_pointers.LinkListNode;
+import org.akv.leetcode.practice.easy.slowfast_pointers.ListImplementation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
