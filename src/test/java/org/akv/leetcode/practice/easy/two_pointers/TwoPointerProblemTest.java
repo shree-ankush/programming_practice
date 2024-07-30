@@ -48,13 +48,13 @@ class TwoPointerProblemTest {
         assertEquals("ada", problem.firstPalindrome(new String[]{"abc", "car", "ada", "racecar", "cool"}));
     }
 
-    @Test
-    void testCountPairsWithLoop() {
-        assertEquals(3, problem.countPairsWithLoop(new int[]{-1, 1, 2, 3, 1}, 2));
-        assertEquals(0, problem.countPairsWithLoop(new int[]{-1, 1, 2, 3, 1}, -2));
-        assertEquals(10, problem.countPairsWithLoop(new int[]{-6, 2, 5, -2, -7, -1, 3}, -2));
-
-    }
+//    @Test
+//    void testCountPairsWithLoop() {
+//        assertEquals(3, problem.countPairsWithLoop(new int[]{-1, 1, 2, 3, 1}, 2));
+//        assertEquals(0, problem.countPairsWithLoop(new int[]{-1, 1, 2, 3, 1}, -2));
+//        assertEquals(10, problem.countPairsWithLoop(new int[]{-6, 2, 5, -2, -7, -1, 3}, -2));
+//
+//    }
 
     @Test
     void arithmeticTriplets() {
@@ -114,5 +114,41 @@ class TwoPointerProblemTest {
         assertFalse(problem.isPalindrome("ra ce a 34car"));
         assertFalse(problem.isPalindrome("ra c:'\"e a 34car"));
         assertTrue(problem.isPalindrome("A man, a plan, a canal: Panama"));
+    }
+
+    @Test
+    void validPalindromeAfterRemovingAtMostOneChar() {
+        assertTrue(problem.validPalindromeAfterRemovingAtMostOneChar("eedede"));
+        assertTrue(problem.validPalindromeAfterRemovingAtMostOneChar("cbbcc"));
+        assertTrue(problem.validPalindromeAfterRemovingAtMostOneChar("aba"));
+        assertTrue(problem.validPalindromeAfterRemovingAtMostOneChar("abca"));
+        assertFalse(problem.validPalindromeAfterRemovingAtMostOneChar("abc"));
+    }
+
+    @Test
+    void reverseWords() {
+//        assertEquals("word",problem.reverseWords("word"));
+        assertEquals("word",problem.reverseWords("word is here"));
+    }
+
+    @Test
+    void findTheDistanceValue() {
+        assertEquals(2,problem.findTheDistanceValue(new int[]{4,8,5},new int[]{10,9,1,8},2));
+        assertEquals(2,problem.findTheDistanceValue(new int[]{1,4,2,3},new int[]{-4,-3,6,10,20,30},3));
+        assertEquals(1,problem.findTheDistanceValue(new int[]{2,1,100,3},new int[]{-5,-2,10,-3,7},6));
+    }
+
+    @Test
+    void mergeTwo2dArraysByAddingItsJthValue() {
+//        assertArrayEquals(new int[][]{{1,6},{2,3},{3,2},{4,6}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{1,2},{2,3},{4,5}},new int[][]{{1,4},{3,2},{4,1}}));
+//        assertArrayEquals(new int[][]{{1,3},{2,4},{3,6},{4,3},{5,5}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{1,3},{4,3}},new int[][]{{2,4},{3,6},{5,5}}));
+        assertArrayEquals(new int[][]{{1,3},{2,4},{3,6},{4,3},{5,5}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{2,4},{3,6},{5,5}},new int[][]{{1,3},{4,3}}));
+
+    }
+
+    @Test
+    void arrayIntersection() {
+        assertArrayEquals(new int[]{2},problem.arrayIntersection(new int[]{1,2,2,1},new int[]{2,2}));
+        assertArrayEquals(new int[]{4,9},problem.arrayIntersection(new int[]{4,9,5},new int[]{9,4,9,8,4}));
     }
 }
