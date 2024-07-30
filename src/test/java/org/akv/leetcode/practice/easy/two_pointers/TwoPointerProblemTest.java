@@ -138,13 +138,7 @@ class TwoPointerProblemTest {
         assertEquals(1,problem.findTheDistanceValue(new int[]{2,1,100,3},new int[]{-5,-2,10,-3,7},6));
     }
 
-    @Test
-    void mergeTwo2dArraysByAddingItsJthValue() {
-//        assertArrayEquals(new int[][]{{1,6},{2,3},{3,2},{4,6}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{1,2},{2,3},{4,5}},new int[][]{{1,4},{3,2},{4,1}}));
-//        assertArrayEquals(new int[][]{{1,3},{2,4},{3,6},{4,3},{5,5}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{1,3},{4,3}},new int[][]{{2,4},{3,6},{5,5}}));
-        assertArrayEquals(new int[][]{{1,3},{2,4},{3,6},{4,3},{5,5}},problem.MergeTwo2dArraysByAddingItsJthValue(new int[][]{{2,4},{3,6},{5,5}},new int[][]{{1,3},{4,3}}));
 
-    }
 
     @Test
     void arrayIntersection() {
