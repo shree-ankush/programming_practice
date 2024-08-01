@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.leetcode.practice.easy.two_pointers;
 
 import java.util.Arrays;
 import java.util.List;
