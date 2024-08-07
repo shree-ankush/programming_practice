@@ -81,7 +81,7 @@ public class SlidingWindowImplementation {
      * Return the minimum possible difference.
      *
      * @param nums
-     * @param nums
+     * @param k
      * @return int
      * @TimeComplexity O(nlogn)
      * @SpaceComplexity O(1)
@@ -118,6 +118,14 @@ public class SlidingWindowImplementation {
 
     }
 
+    /**
+     * Returns Length of Longest Substring of input String
+     * @param str
+     * @return int
+     * @TimeComplexity O(n)
+     * @SpaceComplexity O(n)
+     * @TimeTaken 20mins
+     */
     public int longestSubstringInAString(String str) {
 
         int windowStart = 0, windowSize = 0, longestStringSize = 0, index = 0;
