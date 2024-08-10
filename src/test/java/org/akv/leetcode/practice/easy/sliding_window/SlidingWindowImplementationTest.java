@@ -42,4 +42,16 @@ class SlidingWindowImplementationTest {
     }
 
 
+    @Test
+    void getBombDefuseCode() {
+        assertArrayEquals(new int[]{12,10,16,13},slidingWindowImplementation.getBombDefuseCode(new int[]{5,7,1,4},3));
+        assertArrayEquals(new int[]{12,5,6,13},slidingWindowImplementation.getBombDefuseCode(new int[]{2,4,9,3},-2));
+    }
+
+    @Test
+    void minimumRecolors() {
+//        assertEquals(6,slidingWindowImplementation.minimumRecolors("WBBWWWWBBWWBBBBWWBBWWBBBWWBBBWWWBWBWW",15));
+//        assertEquals(3,slidingWindowImplementation.minimumRecolors("WBBWWBBWBW",7));
+        assertEquals(0,slidingWindowImplementation.minimumRecolors("WBWBBBW",2));
+    }
 }

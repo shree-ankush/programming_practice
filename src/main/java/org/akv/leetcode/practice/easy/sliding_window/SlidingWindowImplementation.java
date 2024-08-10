@@ -52,7 +52,6 @@ public class SlidingWindowImplementation {
      * @SpaceComplexity O(1)
      * @TimeTaken 15mins
      */
-
     public double maxAvgOfSubArrayOfSizeK(int[] arr, int k) {
         int low = 0, high = k - 1;
         double maxAvg = 0, currentAvg = 0;
@@ -120,6 +119,7 @@ public class SlidingWindowImplementation {
 
     /**
      * Returns Length of Longest Substring of input String
+     *
      * @param str
      * @return int
      * @TimeComplexity O(n)
@@ -130,7 +130,7 @@ public class SlidingWindowImplementation {
 
         int windowStart = 0, windowSize = 0, longestStringSize = 0, index = 0;
 
-        str=str.trim().toLowerCase();
+        str = str.trim().toLowerCase();
         //leading and trailing spaces are removed.
         int length = str.length();
 
@@ -151,7 +151,7 @@ public class SlidingWindowImplementation {
                     windowStart = lastSeenAtMap.get(ch) + 1;
 
                 }
-                lastSeenAtMap.replace(ch, index );
+                lastSeenAtMap.replace(ch, index);
 
             } else {
                 lastSeenAtMap.put(ch, index);
@@ -167,5 +167,125 @@ public class SlidingWindowImplementation {
         return longestStringSize;
     }
 
+    /**
+     * You have a bomb to defuse, and your time is running out! Your informer will provide you with a circular array code of length of n and a key k.
+     * To decrypt the code, you must replace every number. All the numbers are replaced simultaneously.
+     * If k > 0, replace the ith number with the sum of the next k numbers.
+     * If k < 0, replace the ith number with the sum of the previous k numbers.
+     * If k == 0, replace the ith number with 0.
+     * As code is circular, the next element of code[n-1] is code[0], and the previous element of code[0] is code[n-1].
+     * Given the circular array code and an integer key k, return the decrypted code to defuse the bomb!
+     * @param code
+     * @param k
+     * @return int[]
+     * @TimeComplexity O(n)
+     * @SpaceComplexity O(n)
+     * @TimeTaken 45min
+     */
+    public int[] getBombDefuseCode(int[] code, int k) {
+        int[] decryptedCode = new int[code.length];
+
+        boolean isWindowSizeSet = false;
+        int index = 0, windowSize = 0;
+        int windowStart = 0;
+        if (k == 0) {
+            Arrays.fill(decryptedCode, 0);
+
+        } else if (k > 0) {
+
+            while (index < code.length) {
+                if (!isWindowSizeSet) {
+                    if (index + (k) >= code.length) {
+                        windowSize = (index + k) % code.length;
+                    } else {
+                        windowSize = index + k;
+                    }
+                    isWindowSizeSet = true;
+
+                }
+                windowStart++;
+                if (windowStart >= code.length) {
+                    windowStart = windowStart % code.length;
+                }
+                decryptedCode[index] += code[windowStart];
+                if (windowStart == windowSize) {
+
+                    index++;
+                    windowStart = index;
+                    isWindowSizeSet = false;
+                }
+            }
+
+        } else {
+            while (index < code.length) {
+                if (!isWindowSizeSet) {
+                    if (index + k < 0) {
+                        windowSize = (code.length + k) + index;
+                    } else {
+                        windowSize = index + k;
+                    }
+                    isWindowSizeSet = true;
+                }
+                windowStart--;
+                if (windowStart < 0) {
+                    windowStart = code.length - 1;
+                }
+                decryptedCode[index] += code[windowStart];
+                if (windowStart == windowSize) {
+                    index++;
+                    windowStart = index;
+                    isWindowSizeSet = false;
+                }
+            }
+        }
+        return decryptedCode;
+
+    }
+
+    /**
+     * You are given a 0-indexed string blocks of length n, where blocks[i] is either 'W' or 'B', representing the color of the ith block. The characters 'W' and 'B' denote the colors white and black, respectively.
+     *
+     * You are also given an integer k, which is the desired number of consecutive black blocks.
+     *
+     * In one operation, you can recolor a white block such that it becomes a black block.
+     *
+     * Return the minimum number of operations needed such that there is at least one occurrence of k consecutive black blocks.
+     * @param blocks
+     * @param k
+     * @return
+     * @TimeComplexity O(n)
+     * @SpaceComplexity O(1)
+     * @TimeTaken 25mins11sec
+     */
+    public int minimumRecolors(String blocks,int k){
+        int windowStart=0,windowEnd=k-1;
+        int currBlackColorCount=0,maxBlackColorCount=0;
+        for (int i = 0; i <= windowEnd; i++) {
+            if(blocks.charAt(i)=='B'){
+                currBlackColorCount++;
+            }
+        }
+        if(currBlackColorCount>maxBlackColorCount){
+            maxBlackColorCount=currBlackColorCount;
+        }
+        windowEnd++;
+        windowStart++;
+        while(windowEnd<blocks.length()){
+            if(blocks.charAt(windowStart-1)=='B' ){
+                currBlackColorCount--;
+            }
+            if(blocks.charAt(windowEnd)=='B'){
+                currBlackColorCount++;
+            }
+            windowEnd++;
+            windowStart++;
+            if(currBlackColorCount>maxBlackColorCount){
+                maxBlackColorCount=currBlackColorCount;
+            }
+
+        }
+        return Math.max(k-maxBlackColorCount, 0);
+
+    }
 
 }
