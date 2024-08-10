@@ -1,4 +1,4 @@
-package org.akv.two_pointers;
+package org.akv.leetcode.practice.easy.two_pointers;
 
 public class FindFirstPallindromicStringInArray {
 
