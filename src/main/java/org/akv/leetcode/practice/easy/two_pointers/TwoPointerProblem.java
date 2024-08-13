@@ -52,15 +52,15 @@ public class TwoPointerProblem {
             }
 
 
-            for (int i = 0; i < sArr.length; i++) {
-                System.out.print(s.charAt(i) + " ");
-            }
-            System.out.println();
-            for (int i = 0; i < sArr.length; i++) {
-                System.out.print(answer[i] + " ");
-            }
+//            for (int i = 0; i < sArr.length; i++) {
+//                System.out.print(s.charAt(i) + " ");
+//            }
+//            System.out.println();
+//            for (int i = 0; i < sArr.length; i++) {
+//                System.out.print(answer[i] + " ");
+//            }
             currIndex = s.indexOf(c, currIndex + 1);
-            System.out.println();
+//            System.out.println();
         }
         return answer;
 
@@ -99,12 +99,12 @@ public class TwoPointerProblem {
      */
     public String firstPalindrome(String[] words) {
         for (int i = 0; i < words.length; i++) {
-            if (checkPallindrome(words[i])) return words[i];
+            if (checkPalindrome(words[i])) return words[i];
         }
         return "";
     }
 
-    public boolean checkPallindrome(String word) {
+    public boolean checkPalindrome(String word) {
         int start = 0;
         int end = word.length() - 1;
         while (start < end) {
@@ -263,7 +263,6 @@ public class TwoPointerProblem {
         Arrays.sort(arr);
         while (start <= end) {
             answer = answer < ((float) arr[start] + arr[end]) / 2 ? answer : ((float) arr[start] + arr[end]) / 2;
-            System.out.println(answer + " " + arr[start] + " " + arr[end]);
             start++;
             end--;
         }
@@ -671,6 +670,38 @@ public class TwoPointerProblem {
         }
 
         return false;
+    }
+
+    public int[] arrangeNumbersAccordingToIdx(int[] nums){
+        //NOT SOLVED
+        int start = 0, end = nums.length - 1, temp = -1;
+        while (start < end) {
+          if(start%2==nums[start]%2){
+              start++;
+              if(end%2==nums[end]%2){
+                  end--;
+              }
+          }
+          else{
+              if(end%2==nums[end]%2){
+                  end--;
+              }
+              else{
+                  nums[end]=nums[start]+nums[end];
+                  nums[start]=nums[end]-nums[start];
+                  nums[end]=nums[end]-nums[start];
+                  start++;
+                  end--;
+              }
+          }
+
+        }
+        for (int x :
+                nums) {
+            System.out.print(x+" ");
+        }
+        System.out.println();
+        return nums;
     }
 
 
