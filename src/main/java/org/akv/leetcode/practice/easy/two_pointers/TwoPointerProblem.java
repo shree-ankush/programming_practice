@@ -1,6 +1,7 @@
 package org.akv.leetcode.practice.easy.two_pointers;
 
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -52,15 +53,7 @@ public class TwoPointerProblem {
             }
 
 
-//            for (int i = 0; i < sArr.length; i++) {
-//                System.out.print(s.charAt(i) + " ");
-//            }
-//            System.out.println();
-//            for (int i = 0; i < sArr.length; i++) {
-//                System.out.print(answer[i] + " ");
-//            }
             currIndex = s.indexOf(c, currIndex + 1);
-//            System.out.println();
         }
         return answer;
 
@@ -91,6 +84,7 @@ public class TwoPointerProblem {
 
     /**
      * Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+     *
      * @param words
      * @return String
      * @TimeComplexity O(n)
@@ -119,7 +113,8 @@ public class TwoPointerProblem {
     }
 
     /**
-     *  Given a List of integers, count the number of pairs whose sum is less than a given target.
+     * Given a List of integers, count the number of pairs whose sum is less than a given target.
+     *
      * @param nums
      * @param target
      * @return int
@@ -129,26 +124,31 @@ public class TwoPointerProblem {
     public int countPairsWithLoop(List<Integer> nums, int target) {
 
         Integer[] arr = nums.toArray(new Integer[0]);
-        int countPairs = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] + arr[j] < target) {
-                    countPairs++;
-                }
-
+        int pairCount = 0;
+        int i=0,j=1;
+        while(i<arr.length-1){
+            if(arr[i]+arr[j]<target){
+                pairCount++;
             }
-
+            if(j==arr.length-1){
+                i++;
+                j=i+1;
+            }
+            else{
+                j++;
+            }
         }
-        return countPairs;
+        return pairCount;
     }
 
     /**
      * You are given a 0-indexed, strictly increasing integer array nums and a positive integer diff. A triplet (i, j, k) is an arithmetic triplet if the following conditions are met:
-     *
+     * <p>
      * i < j < k,
      * nums[j] - nums[i] == diff, and
      * nums[k] - nums[j] == diff.
      * Return the number of unique arithmetic triplets.
+     *
      * @param nums
      * @param diff
      * @return int
@@ -156,7 +156,6 @@ public class TwoPointerProblem {
      * @SpaceComplexity O(1)
      */
     public int arithmeticTriplets(int[] nums, int diff) {
-
 
 
         int count = 0;
@@ -177,12 +176,14 @@ public class TwoPointerProblem {
 
         return count;
     }
+
     /**
      * A permutation perm of n + 1 integers of all the integers in the range [0, n] can be represented as a string s of length n where:
-     *
+     * <p>
      * s[i] == 'I' if perm[i] < perm[i + 1], and
      * s[i] == 'D' if perm[i] > perm[i + 1].
      * Given a string s, reconstruct the permutation perm and return it. If there are multiple valid permutations perm, return any of them.
+     *
      * @param di
      * @return Integer Array
      * @TimeComplexity O(n)
@@ -209,8 +210,10 @@ public class TwoPointerProblem {
             perm[i] = high;
         return perm;
     }
+
     /**
-     *Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+     * Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+     *
      * @param nums
      * @return Integer Array
      * @TimeComplexity 0(n ^ 2)
@@ -244,12 +247,14 @@ public class TwoPointerProblem {
         }
         return arr;
     }
+
     /**
      * You have an array of floating point numbers averages which is initially empty. You are given an array nums of n integers where n is even.
      * You repeat the following procedure n / 2 times:
      * Remove the smallest element, minElement, and the largest element maxElement, from nums.
      * Add (minElement + maxElement) / 2 to averages.
      * Return the minimum element in averages.
+     *
      * @param arr array of integers
      * @return integer
      * @TimeComplexity O(n logn)
@@ -268,9 +273,11 @@ public class TwoPointerProblem {
         }
         return answer;
     }
+
     /**
      * Given an integer array nums that does not contain any zeros, find the largest positive integer k such that -k also exists in the array.
      * Return the positive integer k. If there is no such integer, return -1.
+     *
      * @param arr array of integers
      * @return int
      * @TimeComplexity O(n logn)
@@ -296,6 +303,7 @@ public class TwoPointerProblem {
 
     /**
      * it checks whether the negative of the input target element is present in an array or not
+     *
      * @param arr
      * @param target
      * @return boolean
@@ -322,12 +330,14 @@ public class TwoPointerProblem {
         }
         return false;
     }
+
     /**
      * Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
      * To flip an image horizontally means that each row of the image is reversed.
      * For example, flipping [1,1,0] horizontally results in [0,1,1].
      * To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
      * For example, inverting [0,1,1] results in [1,0,0].
+     *
      * @param image 2d array of integers having only 0 and 1
      * @return int[][]
      * @TimeComplexity O(n ^ 2)
@@ -337,10 +347,10 @@ public class TwoPointerProblem {
     public int[][] flipImage(int[][] image) {
 
 
-        int imageLen = image.length-1;
-        int count=0;
-        int start = 0, end = imageLen ;
-       while(count<=imageLen) {
+        int imageLen = image.length - 1;
+        int count = 0;
+        int start = 0, end = imageLen;
+        while (count <= imageLen) {
 
             if (start < end) {
                 int temp = image[count][start];
@@ -348,10 +358,9 @@ public class TwoPointerProblem {
                 image[count][end] = temp;
                 start++;
                 end--;
-            }
-            else{
+            } else {
                 start = 0;
-                end = imageLen ;
+                end = imageLen;
                 count++;
             }
 
@@ -364,10 +373,11 @@ public class TwoPointerProblem {
 
     /**
      * To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+     *
      * @param image
      * @param imageLen
      * @return int[][]
-     * @TimeComplexity O(n^2)
+     * @TimeComplexity O(n ^ 2)
      * @SpaceComplexity O(1)
      * @TimeTaken 4min
      */
@@ -375,9 +385,9 @@ public class TwoPointerProblem {
 
 
         int count = 0;
-        int start = 0, end = imageLen ;
+        int start = 0, end = imageLen;
 
-        while (count <= imageLen ) {
+        while (count <= imageLen) {
             if (start <= end) {
                 if (start != end) {
                     image[count][start] = image[count][start] == 1 ? 0 : 1;
@@ -396,10 +406,12 @@ public class TwoPointerProblem {
         return image;
 
     }
+
     /**
      * Given a 0-indexed string word and a character ch, reverse the segment of word that starts at index 0 and ends at the index of the first occurrence of ch (inclusive). If the character ch does not exist in word, do nothing.
      * For example, if word = "abcdefd" and ch = "d", then you should reverse the segment that starts at 0 and ends at 3 (inclusive). The resulting string will be "dcbaefd".
      * Return the resulting string.
+     *
      * @param word
      * @param ch
      * @return String
@@ -449,6 +461,7 @@ public class TwoPointerProblem {
     /**
      * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
      * Given a string s, return true if it is a palindrome, or false otherwise.
+     *
      * @param s
      * @return boolean
      * @TimeComplexity O(nlogn)
@@ -458,7 +471,7 @@ public class TwoPointerProblem {
     public boolean isPalindrome(String s) {
 
 
-        if (s.trim().isEmpty()){
+        if (s.trim().isEmpty()) {
             return true;
         }
 
@@ -487,10 +500,10 @@ public class TwoPointerProblem {
         }
         char[] wordArr = word.toCharArray();
         int charIndex = word.indexOf(ch);
-        StringBuilder answer =new StringBuilder();
+        StringBuilder answer = new StringBuilder();
 
         if (charIndex != -1) {
-            char[] strToReverse = word.substring(0,charIndex+1).toCharArray();
+            char[] strToReverse = word.substring(0, charIndex + 1).toCharArray();
             int start = 0, end = charIndex;
             while (start <= end) {
                 char temp = strToReverse[start];
@@ -504,7 +517,7 @@ public class TwoPointerProblem {
 
                 answer.append(strToReverse[i]);
             }
-            answer.append(word.substring(charIndex+1,word.length()));
+            answer.append(word.substring(charIndex + 1, word.length()));
             return answer.toString();
 
 
@@ -513,15 +526,15 @@ public class TwoPointerProblem {
         return word;
     }
 
-    public String reverseWords(String s){
+    public String reverseWords(String s) {
         char[] wordArr = s.toCharArray();
-        for(String word : s.split(" ")){
-            int start =0,end=word.length()-1;
-            System.out.println(start+" "+end);
-            while( start<end){
-                char temp=wordArr[start];
-                wordArr[start]=wordArr[end];
-                wordArr[end]=temp;
+        for (String word : s.split(" ")) {
+            int start = 0, end = word.length() - 1;
+            System.out.println(start + " " + end);
+            while (start < end) {
+                char temp = wordArr[start];
+                wordArr[start] = wordArr[end];
+                wordArr[end] = temp;
 
                 start++;
                 end--;
@@ -534,8 +547,10 @@ public class TwoPointerProblem {
         }
         return "word";
     }
+
     /**
      * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+     *
      * @param s
      * @return boolean
      * @TimeComplexity O()
@@ -573,9 +588,11 @@ public class TwoPointerProblem {
 
         return true;
     }
+
     /**
-     *Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays.
+     * Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays.
      * The distance value is defined as the number of elements arr1[i] such that there is not any element arr2[j] where |arr1[i]-arr2[j]| <= d.
+     *
      * @param arr1
      * @param arr2
      * @param d
@@ -605,13 +622,14 @@ public class TwoPointerProblem {
      * Given two integer arrays nums1 and nums2, return an array of their
      * intersection
      * . Each element in the result must be unique, and you may return the result in any order.
+     *
      * @param nums1
      * @param nums2
      * @return int[]
-     * @TimeComplexity O(N^2)
+     * @TimeComplexity O(N ^ 2)
      * @SpaceComplexity O(n)
      */
-    public int[] arrayIntersection(int[] nums1,int[] nums2){
+    public int[] arrayIntersection(int[] nums1, int[] nums2) {
 
 
         HashSet<Integer> intersectedSet = new HashSet<>();
@@ -620,27 +638,26 @@ public class TwoPointerProblem {
         int nums2Len = nums2.length;
 
 
-        if(nums1Len<=nums2Len){
-            for (int i =0;i<nums1Len;i++){
-                if(isTargetPresent(nums1[i],nums2)){
+        if (nums1Len <= nums2Len) {
+            for (int i = 0; i < nums1Len; i++) {
+                if (isTargetPresent(nums1[i], nums2)) {
                     intersectedSet.add(nums1[i]);
                 }
             }
-        }else {
-            for (int i =0;i<nums2Len;i++){
-                if(isTargetPresent(nums2[i],nums1)){
+        } else {
+            for (int i = 0; i < nums2Len; i++) {
+                if (isTargetPresent(nums2[i], nums1)) {
                     intersectedSet.add(nums2[i]);
                 }
             }
         }
 
 
-
         int[] arr = new int[intersectedSet.size()];
-        int count=0;
+        int count = 0;
         for (Integer x :
                 intersectedSet) {
-            arr[count]=x;
+            arr[count] = x;
             count++;
         }
 
@@ -672,38 +689,227 @@ public class TwoPointerProblem {
         return false;
     }
 
-    public int[] arrangeNumbersAccordingToIdx(int[] nums){
-        //NOT SOLVED
-        int start = 0, end = nums.length - 1, temp = -1;
-        while (start < end) {
-          if(start%2==nums[start]%2){
-              start++;
-              if(end%2==nums[end]%2){
-                  end--;
-              }
-          }
-          else{
-              if(end%2==nums[end]%2){
-                  end--;
-              }
-              else{
-                  nums[end]=nums[start]+nums[end];
-                  nums[start]=nums[end]-nums[start];
-                  nums[end]=nums[end]-nums[start];
-                  start++;
-                  end--;
-              }
-          }
 
+    /**
+     * arrange the numbers in the array such that even and odd index of the array contains even and odd numbers respectively
+     *
+     * @param nums
+     * @return int[]
+     * @TimeComplexity O(n)
+     * @SpaceComplexity O(n)
+     * @TimeTaken 19min
+     */
+    public int[] arrangeNumbersAccordingToIdx(int[] nums) {
+
+        int evenIdx = 0, oddIdx = 1;
+        int start = 0, end =nums.length-1;
+        while(start < end){
+            if(start%2==0 && nums[start]%2==0 || start%2!=0 && nums[start]%2!=0){
+                start++;
+            }
+            if(end%2==0 && nums[end]%2==0 || end%2!=0 && nums[end]%2!=0){
+                end--;
+            }
+
+            if(start%2!=0 && nums[start]%2==0 && end%2==0 && nums[end]%2!=0){
+                nums[start] = nums[start] ^ nums[end];
+                nums[end] = nums[start] ^ nums[end];
+                nums[start] = nums[start] ^ nums[end];
+                start++;
+                end--;
+            }
+            if(start%2==0 && nums[start]%2!=0 && end%2!=0 && nums[end]%2==0){
+                nums[start] = nums[start] ^ nums[end];
+                nums[end] = nums[start] ^ nums[end];
+                nums[start] = nums[start] ^ nums[end];
+                start++;
+                end--;
+            }
         }
-        for (int x :
-                nums) {
-            System.out.print(x+" ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(nums));
+
         return nums;
     }
 
 
+    /**
+     * Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+     * @param nums
+     * @return int[]
+     * @TimeComplexity O(n)
+     * @SpaceComplexity O(1)
+     * @TimeTaken 15mins
+     */
+    public int[] moveZeroesToEnd(int[] nums) {
+        int left = 0, nonZeroCount = 0;
+        if (nums.length == 1) {
+            return nums;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nonZeroCount++;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[left] = nums[i];
+                left++;
+            }
+            if (left == nonZeroCount) {
+                break;
+            }
+        }
+        for (int i = left; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+
+        return nums;
+    }
+
+    public int[] sortEvenOddIndexSeparately(int[] nums) {
+        int evenIndex = 0, oddIndex = 1;
+        for (int i = oddIndex; i < nums.length; i += 2) {
+            for (int j = oddIndex; j < nums.length; j += 2) {
+                if (nums[i] > nums[j]) {
+                    nums[i] = nums[i] ^ nums[j];
+                    nums[j] = nums[i] ^ nums[j];
+                    nums[i] = nums[i] ^ nums[j];
+                }
+            }
+        }
+        for (int i = evenIndex; i < nums.length; i += 2) {
+            for (int j = evenIndex; j < nums.length; j += 2) {
+                if (nums[i] < nums[j]) {
+                    nums[i] = nums[i] ^ nums[j];
+                    nums[j] = nums[i] ^ nums[j];
+                    nums[i] = nums[i] ^ nums[j];
+                }
+            }
+        }
+        return nums;
+
+    }
+
+
+    /**
+     * Given two integer arrays nums1 and nums2, sorted in non-decreasing order, return the minimum integer common to both arrays. If there is no common integer amongst nums1 and nums2, return -1.
+     *
+     * @param nums1
+     * @param nums2
+     * @return int
+     * @TimeComplexity O(N)
+     * @SpaceComplexity O(1)
+     * @TimeTaken 11min 15sec
+     */
+    public int getMinCommonValueFromTwoArr(int[] nums1, int[] nums2) {
+        int i = 0;
+        if (nums1.length >= nums2.length) {
+            while (i < nums2.length) {
+                if (isTargetPresent(nums1, nums2[i])) {
+                    return nums2[i];
+                }
+                i++;
+            }
+        } else {
+            while (i < nums1.length) {
+                if (isTargetPresent(nums2, nums1[i])) {
+                    return nums1[i];
+                }
+                i++;
+            }
+        }
+        return -1;
+    }
+
+    public boolean isTargetPresent(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (target == arr[mid]) {
+                return true;
+            }
+            if (target > arr[mid]) {
+                left = mid + 1;
+            }
+            if (target < arr[mid]) {
+                right = mid - 1;
+            }
+        }
+        return false;
+    }
+
+    public int findNoOfContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int contentChildrenCount = 0;
+        int i = 0, j = 0;
+
+        while (i < g.length && j < s.length) {
+            if (s[j] >= g[i]) { // If the cookie satisfies the child's greed
+                contentChildrenCount++;
+                i++; // Move to the next child
+            }
+            j++; // Always move to the next cookie
+        }
+
+        return contentChildrenCount;
+    }
+
+    public void duplicateZeroes(int[] arr){
+        int i=0;
+//  1,0,2,3,0,4,5,0
+//  1,0,2,2,3,0,4,5
+
+
+
+        while(i<arr.length){
+            if(arr[i]==0){
+                int j=arr.length-1;
+               while(j>i+1){
+                   arr[j]=arr[j-1];
+                   j--;
+               }
+               arr[j]=0;
+               i+=2;
+
+            }
+            i++;
+
+        }
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    public int[] distanceToCharInString(String s, char c){
+        int[] arr = new int[s.length()];
+
+       int start =0, end  = s.indexOf(c);
+       int index = end;
+       for(int i =end ;i>=0;i--){
+           arr[start] = i;
+           start++;
+       }
+       while(index!=-1&&end<s.length()-1){
+
+           start = index;
+           end=s.indexOf(c,index+1);
+           index=end;
+           if(start<s.length() && end==-1){
+               for (int i = 0; start <s.length(); i++) {
+                   arr[start]=i;
+                   start++;
+               }
+           }
+           int distance=0;
+           while(start<=end){
+               arr[start]=arr[end]=distance;
+               distance++;start++;end--;
+           }
+       }
+        System.out.println(Arrays.toString(arr));
+        return arr;
+
+
+    }
 
 }
